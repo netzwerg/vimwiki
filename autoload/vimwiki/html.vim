@@ -1061,6 +1061,10 @@ function! s:process_tag_table(line, table) "{{{
       let cell.body    = ''
       let cell.rowspan = 1
       let cell.colspan = 0
+    elseif a:value =~ '^\s*`&gt;\s*$'
+      let cell.body    = '&gt;'
+      let cell.rowspan = 1
+      let cell.colspan = 1
     elseif a:value =~ '^\s*$'
       let cell.body    = '&nbsp;'
       let cell.rowspan = 1
