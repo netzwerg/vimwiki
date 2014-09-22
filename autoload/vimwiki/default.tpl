@@ -10,10 +10,13 @@
     html {
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     }
+    /*
+       I am only interested in tables to create two-column lists of
+       keyboard-shortcut/description entries. Enforcing the first column of
+       all tables to be the same width, makes multiple lists appear consistent
+       on any given page. 
+     */  
     td:first-child {  
-      font-family: monospace; 
-      font-weight: bold;
-      color: grey;
       min-width: 20%;
     }
   </style>
