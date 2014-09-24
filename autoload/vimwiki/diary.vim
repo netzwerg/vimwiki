@@ -164,15 +164,9 @@ fun! s:format_diary(...) "{{{
 
       " for [fl, cap] in s:rev(sort(items(g_files[year][month])))
       for [fl, cap] in s:sort(items(g_files[year][month]))
-        if empty(cap)
-          let entry = substitute(g:vimwiki_WikiLinkTemplate1, '__LinkUrl__', fl, '')
-          let entry = substitute(entry, '__LinkDescription__', cap, '')
-          call add(result, repeat(' ', &sw).'* '.entry)
-        else
-          let entry = substitute(g:vimwiki_WikiLinkTemplate2, '__LinkUrl__', fl, '')
-          let entry = substitute(entry, '__LinkDescription__', cap, '')
-          call add(result, repeat(' ', &sw).'* '.entry)
-        endif
+        let entry = substitute(g:vimwiki_WikiLinkTemplate1, '__LinkUrl__', fl, '')
+        let entry = substitute(entry, '__LinkDescription__', cap, '')
+        call add(result, repeat(' ', &sw).'* '.entry)
       endfor
 
     endfor
