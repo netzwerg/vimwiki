@@ -12,12 +12,6 @@
 # is on your path.
 #
 # Also verify that this file is executable.
-#
-# Then, in your .vimrc file, set:
-#
-#   g:vimwiki_customwiki2html=$HOME.'/.vim/autoload/vimwiki/pandoc.sh'
-#
-#
 
 PANDOC=pandoc
 
@@ -41,5 +35,5 @@ SED_CMD3="s/\[\($VALID_CHARS\+\)\]()/[\1](\1.html)/g"
 
 cat "$INPUT" | \
     sed "$SED_CMD1; $SED_CMD2; $SED_CMD3;" |
-    "$PANDOC" -s -f markdown -t html -c "$CSSFILE" -o "$OUTPUT"
-
+    "$PANDOC" -s --template bootstrap.html -f markdown -c "$CSSFILE" -o "$OUTPUT"
+cp ~/.vim/bundle/vimwiki/autoload/vimwiki/style.css $OUTPUTDIR
